@@ -5,17 +5,17 @@ namespace Club.Datos
 {
     internal class Conexion
     {
-        private String database;
+        static readonly String database = "omeguitas";
         private String server;
         private String port;
         private String user;
         private String key;
         private static Conexion con = null;
 
+        static public string Database { get => database; }
 
         private Conexion()
         {
-            this.database = "omeguitas";
             this.server = "localhost";
             this.port = "3306";
             this.user = "root";
@@ -27,7 +27,7 @@ namespace Club.Datos
             MySqlConnection cadena = new MySqlConnection();
             try
             {
-                cadena.ConnectionString = "datasource=" + this.server + ";port=" + this.port + ";username=" + this.user + ";Database=" + this.database;
+                cadena.ConnectionString = "datasource=" + this.server + ";port=" + this.port + ";username=" + this.user + ";Database=" + this.Database + ";password=" + this.key;
             }
             catch
             {
@@ -44,6 +44,22 @@ namespace Club.Datos
                 con = new Conexion();
             }
             return con;
+        }
+
+            
+        public MySqlConnection CrearcrearDataBase()
+        {
+            MySqlConnection cadena = new MySqlConnection();
+            try
+            {
+                cadena.ConnectionString = "datasource=" + this.server + ";port=" + this.port + ";username=" + this.user + ";password=" + this.key;
+            }
+            catch
+            {
+                cadena = null;
+                throw;
+            }
+            return cadena;
         }
     }
 }
