@@ -27,7 +27,7 @@ namespace Club.Datos
             MySqlConnection cadena = new MySqlConnection();
             try
             {
-                cadena.ConnectionString = "datasource=" + this.server + ";port=" + this.port + ";username=" + this.user + ";Database=" + this.Database + ";password=" + this.key;
+                cadena.ConnectionString = "datasource= " + this.server + ";port= " + this.port + ";username= " + this.user + ";Database= " + Conexion.Database+ ";password= " + this.key;
             }
             catch
             {
