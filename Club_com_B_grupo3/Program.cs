@@ -18,7 +18,7 @@ namespace Club_com_B_grupo3
             try
             {
                 sqlCon = Conexion.getInstancia().CrearcrearDataBase();
-                string useBase = "USE"+Conexion.Database+";";
+                string useBase = "USE "+Conexion.Database+";";
                 MySqlCommand commUseBase = new MySqlCommand(useBase, sqlCon);
                 sqlCon.Open();
                 commUseBase.ExecuteNonQuery();
@@ -27,7 +27,7 @@ namespace Club_com_B_grupo3
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                string creaBase = "CREATE DATABASE IF NOT EXISTS"+ Conexion.Database + " character set utf8 collate utf8_spanish2_ci; USE omeguitas;";
+                string creaBase = "CREATE DATABASE IF NOT EXISTS "+ Conexion.Database + " character set utf8 collate utf8_spanish2_ci; USE omeguitas;";
                 MySqlCommand comandoBase = new MySqlCommand(creaBase, sqlCon);
                 string socio = "CREATE TABLE IF NOT EXISTS socio(nombre varchar(50),apellido varchar(50),direccion varchar(50),mail varchar(50),telefono varchar(20),dni int PRIMARY KEY,apto boolean);";
                 MySqlCommand comandoSocio = new MySqlCommand(socio, sqlCon);
