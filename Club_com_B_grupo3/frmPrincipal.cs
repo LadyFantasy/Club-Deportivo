@@ -24,7 +24,14 @@ namespace Club_com_B_grupo3
 
         private void btnRegistrarSocio_Click(object sender, EventArgs e)
         {
-            Form form = new frmAgregarSocio(this);
+            Form form = new frmAgregar(this,0);
+            this.Hide();
+            form.ShowDialog();
+        }
+
+        private void btnRegistNoSocio_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAgregar(this, 1);
             this.Hide();
             form.ShowDialog();
         }
