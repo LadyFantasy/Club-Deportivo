@@ -34,6 +34,7 @@
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDia = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblSinVencimientos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdVencimientos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,23 @@
             this.lblTitulo.TabIndex = 3;
             this.lblTitulo.Text = "Vencimientos del cuotas del día ";
             // 
+            // lblSinVencimientos
+            // 
+            this.lblSinVencimientos.AutoSize = true;
+            this.lblSinVencimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSinVencimientos.Location = new System.Drawing.Point(181, 233);
+            this.lblSinVencimientos.Name = "lblSinVencimientos";
+            this.lblSinVencimientos.Size = new System.Drawing.Size(406, 38);
+            this.lblSinVencimientos.TabIndex = 6;
+            this.lblSinVencimientos.Text = "No hay vencimientos hoy";
+            this.lblSinVencimientos.Visible = false;
+            // 
             // frmVencimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblSinVencimientos);
             this.Controls.Add(this.grdVencimientos);
             this.Controls.Add(this.lblDia);
             this.Controls.Add(this.lblTitulo);
@@ -121,5 +134,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mail;
         private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblSinVencimientos;
     }
 }

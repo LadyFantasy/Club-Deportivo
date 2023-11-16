@@ -15,7 +15,8 @@ namespace Club_com_B_grupo3.Datos
     public partial class frmVencimientos : Form
     {
         Form ppal;
-        string hoy = DateTime.Today.ToString();
+        DateTime hoy = DateTime.Today;
+        string strHoy = DateTime.Today.ToString();
         public frmVencimientos(Form ppal)
         {
             this.ppal = ppal;
@@ -24,7 +25,7 @@ namespace Club_com_B_grupo3.Datos
 
         private void frmVencimientos_Load(object sender, EventArgs e)
         {
-            lblDia.Text = hoy.Remove(hoy.Length - 9);
+            lblDia.Text = strHoy.Remove(strHoy.Length - 9);
             MySqlDataReader resultado;
             DataTable tabla = new DataTable();
             MySqlConnection sqlCon = new MySqlConnection();
@@ -60,6 +61,11 @@ namespace Club_com_B_grupo3.Datos
                     grdVencimientos.Rows[filaGrd].Cells[1].Value = tabla.Rows[i][1].ToString();
                     grdVencimientos.Rows[filaGrd].Cells[2].Value = tabla.Rows[i][2].ToString();
                 };
+            }
+            else
+            {
+                grdVencimientos.Visible = false;
+                lblSinVencimientos.Visible = true;
             }
         }
     }
