@@ -73,4 +73,4 @@ namespace Club_com_B_grupo3
             Application.Run(new frmLogin());
         }
     }
-}//esto es de master2
+}
