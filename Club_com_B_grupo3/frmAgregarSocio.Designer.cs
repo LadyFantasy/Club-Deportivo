@@ -1,6 +1,6 @@
 ﻿namespace Club_com_B_grupo3
 {
-    partial class frmAgregar
+    partial class frmAgregarSocio
     {
         /// <summary>
         /// Required designer variable.

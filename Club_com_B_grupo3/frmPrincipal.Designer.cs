@@ -71,7 +71,6 @@
             this.btnRegistNoSocio.TabIndex = 2;
             this.btnRegistNoSocio.Text = "Registrar nuevo no socio";
             this.btnRegistNoSocio.UseVisualStyleBackColor = false;
-            this.btnRegistNoSocio.Click += new System.EventHandler(this.btnRegistNoSocio_Click);
             // 
             // btnListarVencimientos
             // 
