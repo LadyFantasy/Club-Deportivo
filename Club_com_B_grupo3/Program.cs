@@ -43,6 +43,8 @@ namespace Club_com_B_grupo3
                 MySqlScript comandoProcIngSocio = new MySqlScript(sqlCon, procIngSocio);
                 string procLogin = "CREATE procedure IngresoLogin(in Usu varchar(20),in Pass varchar(15)) BEGIN SELECT NomRol FROM usuario INNER JOIN roles ON Rol = RolUsu WHERE nombre = Usu AND passw = Pass  AND Activo = 1; END  //";
                 MySqlScript comandoProcLogin = new MySqlScript(sqlCon, procLogin);
+                string procVencimientos = "CREATE procedure ListarVencimientos(in hoy date) BEGIN SELECT nombre,apellido,mail FROM socio WHERE vencimiento like hoy; END  //";
+                MySqlScript comandoProcVencimientos= new MySqlScript(sqlCon, procVencimientos);
                 comandoProcLogin.Delimiter = "//";
                 comandoProcIngSocio.Delimiter = "//";
 
@@ -55,6 +57,7 @@ namespace Club_com_B_grupo3
                 comandoCargaAdmin.ExecuteNonQuery();
                 comandoProcIngSocio.Execute();
                 comandoProcLogin.Execute();
+                comandoProcVencimientos.Execute();
             }
             finally
             {

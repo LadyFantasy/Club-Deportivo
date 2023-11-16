@@ -85,6 +85,7 @@
             this.btnListarVencimientos.TabIndex = 10;
             this.btnListarVencimientos.Text = "Vencimientos";
             this.btnListarVencimientos.UseVisualStyleBackColor = false;
+            this.btnListarVencimientos.Click += new System.EventHandler(this.btnListarVencimientos_Click);
             // 
             // btnAgregarActividad
             // 

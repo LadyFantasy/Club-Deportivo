@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Club_com_B_grupo3.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,13 @@ namespace Club_com_B_grupo3
         {
             Form form = new frmAgregarSocio(this);
             this.Hide();
+            form.ShowDialog();
+        }
+
+        private void btnListarVencimientos_Click(object sender, EventArgs e)
+        {
+            Form form = new frmVencimientos(this);
+            //this.Hide();
             form.ShowDialog();
         }
     }
