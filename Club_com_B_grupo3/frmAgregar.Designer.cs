@@ -1,6 +1,6 @@
 ﻿namespace Club_com_B_grupo3
 {
-    partial class frmAgregarSocio
+    partial class frmAgregar
     {
         /// <summary>
         /// Required designer variable.
@@ -54,9 +54,8 @@
             this.lblTitulo.Font = new System.Drawing.Font("Papyrus", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(127, 61);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(405, 64);
+            this.lblTitulo.Size = new System.Drawing.Size(0, 64);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Agregar nuevo socio";
             // 
             // lblNombre
             // 
@@ -267,7 +266,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmAgregar";
             this.Text = "Agregar Socio";
-            this.Load += new System.EventHandler(this.frmAgregarSocio_Load);
+            this.Load += new System.EventHandler(this.frmAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -71,6 +71,7 @@
             this.btnRegistNoSocio.TabIndex = 2;
             this.btnRegistNoSocio.Text = "Registrar nuevo no socio";
             this.btnRegistNoSocio.UseVisualStyleBackColor = false;
+            this.btnRegistNoSocio.Click += new System.EventHandler(this.btnRegistNoSocio_Click);
             // 
             // btnListarVencimientos
             // 
@@ -85,17 +86,18 @@
             this.btnListarVencimientos.UseVisualStyleBackColor = false;
             this.btnListarVencimientos.Click += new System.EventHandler(this.btnListarVencimientos_Click);
             // 
-            // btnCobrarCuota
+            // btnSalir
             // 
-            this.btnCobrarCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCobrarCuota.Font = new System.Drawing.Font("Papyrus", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCobrarCuota.Location = new System.Drawing.Point(414, 168);
-            this.btnCobrarCuota.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCobrarCuota.Name = "btnCobrarCuota";
-            this.btnCobrarCuota.Size = new System.Drawing.Size(338, 55);
-            this.btnCobrarCuota.TabIndex = 4;
-            this.btnCobrarCuota.Text = "Cobrar cuota socio";
-            this.btnCobrarCuota.UseVisualStyleBackColor = false;
+            this.btnSalir.BackColor = System.Drawing.Color.Red;
+            this.btnSalir.Font = new System.Drawing.Font("Papyrus", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(414, 300);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(338, 55);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnCobrarActividad
             // 
@@ -109,18 +111,17 @@
             this.btnCobrarActividad.Text = "Cobrar actividad no socio";
             this.btnCobrarActividad.UseVisualStyleBackColor = false;
             // 
-            // btnSalir
+            // btnCobrarCuota
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.Red;
-            this.btnSalir.Font = new System.Drawing.Font("Papyrus", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(414, 300);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(338, 55);
-            this.btnSalir.TabIndex = 6;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnCobrarCuota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCobrarCuota.Font = new System.Drawing.Font("Papyrus", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobrarCuota.Location = new System.Drawing.Point(414, 168);
+            this.btnCobrarCuota.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCobrarCuota.Name = "btnCobrarCuota";
+            this.btnCobrarCuota.Size = new System.Drawing.Size(338, 55);
+            this.btnCobrarCuota.TabIndex = 4;
+            this.btnCobrarCuota.Text = "Cobrar cuota socio";
+            this.btnCobrarCuota.UseVisualStyleBackColor = false;
             // 
             // frmPrincipal
             // 
