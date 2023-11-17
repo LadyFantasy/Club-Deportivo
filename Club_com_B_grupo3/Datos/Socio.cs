@@ -28,6 +28,7 @@ namespace Club_com_B_grupo3.Datos
                 comando.Parameters.Add("tel", MySqlDbType.VarChar).Value = tel;
                 comando.Parameters.Add("pdni", MySqlDbType.Int32).Value = dni;
                 comando.Parameters.Add("apto", MySqlDbType.Bit).Value = apto;
+                comando.Parameters.Add("vto",MySqlDbType.Date).Value = DateTime.Today;
                 MySqlParameter salida = new MySqlParameter();
                 salida.ParameterName = "exito";
                 salida.DbType = DbType.Boolean;
