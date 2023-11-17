@@ -83,6 +83,7 @@
             this.btnListarVencimientos.TabIndex = 3;
             this.btnListarVencimientos.Text = "Vencimientos";
             this.btnListarVencimientos.UseVisualStyleBackColor = false;
+            this.btnListarVencimientos.Click += new System.EventHandler(this.btnListarVencimientos_Click);
             // 
             // btnCobrarCuota
             // 
