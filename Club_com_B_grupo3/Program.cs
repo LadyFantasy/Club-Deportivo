@@ -52,7 +52,7 @@ namespace Club_com_B_grupo3
                 comandoProcLogin.Delimiter = "//";
                 comandoProcIngSocio.Delimiter = "//";
                 comandoProcIngNoSocio.Delimiter = "//";
-
+                comandoProcVencimientos.Delimiter = "//";
 
                 comandoBase.ExecuteNonQuery();
                 comandoSocio.ExecuteNonQuery();
