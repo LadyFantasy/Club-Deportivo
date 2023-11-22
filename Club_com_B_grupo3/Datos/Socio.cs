@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,8 +18,8 @@ namespace Club_com_B_grupo3.Datos
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
-                string registrado;
                 sqlCon = Conexion.getInstancia().CrearConexion();
+                string registrado;
                 MySqlCommand comando = new MySqlCommand("ingresarSocio", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("nom", MySqlDbType.VarChar).Value = nom;
@@ -28,6 +29,7 @@ namespace Club_com_B_grupo3.Datos
                 comando.Parameters.Add("tel", MySqlDbType.VarChar).Value = tel;
                 comando.Parameters.Add("pdni", MySqlDbType.Int32).Value = dni;
                 comando.Parameters.Add("apto", MySqlDbType.Bit).Value = apto;
+                comando.Parameters.Add("vto", MySqlDbType.Date).Value = DateTime.Today;
                 MySqlParameter salida = new MySqlParameter();
                 salida.ParameterName = "exito";
                 salida.DbType = DbType.Boolean;
@@ -39,6 +41,8 @@ namespace Club_com_B_grupo3.Datos
                 if (registrado == "1")
                 {
                     MessageBox.Show("El nuevo socio " + nom + " " + ape + " Fue registrado con exito", "Registro exitoso");
+                    Form form = new frmCarnet(nom+", "+ape,dni.ToString());
+                    form.ShowDialog();
                 }
                 else
                 {
@@ -54,6 +58,59 @@ namespace Club_com_B_grupo3.Datos
             {
                 if (sqlCon.State == ConnectionState.Open)
                 { sqlCon.Close(); };
+            }
+        }
+
+        public static DataTable buscarSocio(int dni) {
+            MySqlDataReader resultado;
+            DataTable socio = new DataTable();
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("BuscarSocio", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("documento", MySqlDbType.Int64).Value = dni;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                socio.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return socio;
+        }
+        public static void pagarCuota(int dni) 
+        {
+            DataTable socio = buscarSocio(dni);
+            if (socio.Rows.Count > 0)
+            {
+                string nombre = socio.Rows[0][0].ToString();
+                string apellido = socio.Rows[0][1].ToString();
+                string vencimiento = socio.Rows[0][7].ToString();
+                vencimiento = vencimiento.Remove(vencimiento.Length - 9);
+                string respuesta = MessageBox.Show("El socio " + nombre + ", " + apellido + ".\nTiene pago hasta el día " + vencimiento + "\n¿Desea abonar un mes más?", "Abonar cuota", MessageBoxButtons.YesNo).ToString();
+                if (respuesta == "Yes")
+                {
+                    MySqlConnection sqlCon = new MySqlConnection();
+                    sqlCon = Conexion.getInstancia().CrearConexion();
+                    sqlCon.Open();
+                    DateTime vencimientoViejo = (DateTime)socio.Rows[0][7];
+                    DateTime vencimientoNuevo = vencimientoViejo.AddMonths(1);
+                    MySqlCommand pagar = new MySqlCommand("ActualizarVencimiento", sqlCon);
+                    pagar.CommandType = CommandType.StoredProcedure;
+                    pagar.Parameters.Add("vto", MySqlDbType.Date).Value = vencimientoNuevo;
+                    pagar.Parameters.Add("documento", MySqlDbType.Int64).Value = dni;
+                    pagar.ExecuteNonQuery();
+                    sqlCon.Close();
+                }
             }
         }
     }

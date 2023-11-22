@@ -54,6 +54,14 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.2.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
@@ -102,20 +110,53 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\frmCargaDatosDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Datos\frmCargaDatosDB.Designer.cs">
+      <DependentUpon>frmCargaDatosDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\frmIngreseDni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Datos\frmIngreseDni.Designer.cs">
+      <DependentUpon>frmIngreseDni.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datos\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Datos\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormImprimible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarnet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarnet.Designer.cs">
+      <DependentUpon>frmCarnet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmComprobantePagoActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComprobantePagoActividad.Designer.cs">
+      <DependentUpon>frmComprobantePagoActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVencimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVencimientos.Designer.cs">
+      <DependentUpon>frmVencimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Persona.cs" />
     <Compile Include="Datos\Socio.cs" />
     <Compile Include="Datos\Usuario.cs" />
-    <Compile Include="frmAgregarSocio.cs">
+    <Compile Include="frmAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAgregarSocio.Designer.cs">
-      <DependentUpon>frmAgregarSocio.cs</DependentUpon>
+    <Compile Include="frmAgregar.Designer.cs">
+      <DependentUpon>frmAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -123,13 +164,29 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoSocio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Datos\frmCargaDatosDB.resx">
+      <DependentUpon>frmCargaDatosDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Datos\frmIngreseDni.resx">
+      <DependentUpon>frmIngreseDni.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Datos\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAgregarSocio.resx">
-      <DependentUpon>frmAgregarSocio.cs</DependentUpon>
+    <EmbeddedResource Include="frmCarnet.resx">
+      <DependentUpon>frmCarnet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComprobantePagoActividad.resx">
+      <DependentUpon>frmComprobantePagoActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVencimientos.resx">
+      <DependentUpon>frmVencimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregar.resx">
+      <DependentUpon>frmAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -156,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
