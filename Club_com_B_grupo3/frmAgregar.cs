@@ -30,8 +30,10 @@ namespace Club_com_B_grupo3
             }
             else if (opcion == 1)
             {
+                this.Text = "Agregar no socio";
                 lblTitulo.Text = "Agregar nuevo no socio";
             }
+            Name = lblTitulo.Text;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -42,16 +44,54 @@ namespace Club_com_B_grupo3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (opcion == 0)
+            if(txtNombre.Text != "" && txtApellido.Text != "" && txtDni.Text != "" && txtDireccion.Text != "" && txtMail.Text != "" && txtCodigo.Text != "" && txtNumero.Text != "")
             {
-            Socio socio = new Socio(txtNombre.Text,txtApellido.Text,txtDireccion.Text,txtMail.Text,txtCodigo.Text+txtNumero.Text, int.Parse(txtDni.Text),chkApto.Checked);
+                if (!chkApto.Checked)
+                {
+                    MessageBox.Show("Para poder registrarse, es necesario presentar el apto físico", "Alerta");
+                }
+                else
+                {
+                    if (opcion == 0)
+                    {
+                        Socio socio = new Socio(txtNombre.Text,txtApellido.Text,txtDireccion.Text,txtMail.Text,txtCodigo.Text+txtNumero.Text, int.Parse(txtDni.Text),chkApto.Checked);
+                    }
+                    else if (opcion == 1)
+                    {
+                        NoSocio noSocio = new NoSocio(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtMail.Text, txtCodigo.Text + txtNumero.Text, int.Parse(txtDni.Text), chkApto.Checked);
+                    }
+                    principal.Show();
+                    this.Close();
+                }
             }
-            else if (opcion == 1)
+            else
             {
-                NoSocio noSocio = new NoSocio(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtMail.Text, txtCodigo.Text + txtNumero.Text, int.Parse(txtDni.Text), chkApto.Checked);
+                MessageBox.Show("Todos los campos son obligatorios", "Mensaje del sistema");
             }
-            principal.Show();
-            this.Close();
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

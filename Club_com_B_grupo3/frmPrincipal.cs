@@ -43,5 +43,16 @@ namespace Club_com_B_grupo3
             form.ShowDialog();
         }
 
+        private void btnCobrarCuota_Click(object sender, EventArgs e)
+        {
+            Form form = new frmIngreseDni(0);
+            form.ShowDialog();
+        }
+
+        private void btnCobrarActividad_Click(object sender, EventArgs e)
+        {
+            Form form = new frmIngreseDni(1);
+            form.ShowDialog();
+        }
     }
 }

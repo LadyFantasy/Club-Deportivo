@@ -56,5 +56,45 @@ namespace Club_com_B_grupo3.Datos
                 { sqlCon.Close(); };
             }
         }
+
+        public static DataTable buscarNoSocio(int dni)
+        {
+            MySqlDataReader resultado;
+            DataTable noSocio = new DataTable();
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("BuscarNoSocio", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("documento", MySqlDbType.Int64).Value = dni;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                noSocio.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return noSocio;
+        }
+
+
+        public static void pagarActividad(int dni, string actividad, string valor, string forma, string cuotas)
+        {
+            DataTable noSocio = buscarNoSocio(dni);
+            if (noSocio.Rows.Count > 0) 
+            {
+                string nombre = noSocio.Rows[0][0].ToString()+", "+ noSocio.Rows[0][1].ToString();
+                Form form = new frmComprobantePagoActividad(nombre, actividad, valor, forma, cuotas);
+                form.ShowDialog();
+            }
+        }
     }
 }

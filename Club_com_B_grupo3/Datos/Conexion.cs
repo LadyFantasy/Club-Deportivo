@@ -5,21 +5,22 @@ namespace Club.Datos
 {
     internal class Conexion
     {
-        static readonly String database = "omeguitas";
-        private String server;
-        private String port;
-        private String user;
-        private String key;
-        private static Conexion con = null;
+        static readonly string database = "omeguitas";
+        private static string server;
+        private static string port;
+        private static string user;
+        private static string key;
+        public static Conexion con = null;
 
         static public string Database { get => database; }
+        public static string Server { get => server; set => server = value; }
+        public static string Port { get => port; set => port = value; }
+        public static string User { get => user; set => user = value; }
+        public static string Key { get => key; set => key = value; }
 
         private Conexion()
         {
-            this.server = "localhost";
-            this.port = "3306";
-            this.user = "root";
-            this.key = "";
+            
         }
 
         public MySqlConnection CrearConexion()
@@ -27,7 +28,16 @@ namespace Club.Datos
             MySqlConnection cadena = new MySqlConnection();
             try
             {
-                cadena.ConnectionString = "datasource= " + this.server + ";port= " + this.port + ";username= " + this.user + ";Database= " + Conexion.Database+ ";password= " + this.key;
+                cadena.ConnectionString = "datasource= "
+                    + Server
+                    + ";port= "
+                    + Port
+                    + ";username= "
+                    + User
+                    + ";Database= "
+                    + Database
+                    + ";password= "
+                    + Key;
             }
             catch
             {
@@ -52,7 +62,7 @@ namespace Club.Datos
             MySqlConnection cadena = new MySqlConnection();
             try
             {
-                cadena.ConnectionString = "datasource=" + this.server + ";port=" + this.port + ";username=" + this.user + ";password=" + this.key;
+                cadena.ConnectionString = "datasource=" + Server + ";port=" + Port + ";username=" + User + ";password=" + Key;
             }
             catch
             {

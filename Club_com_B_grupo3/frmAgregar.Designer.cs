@@ -30,7 +30,6 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblDni = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.chkApto = new System.Windows.Forms.CheckBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -67,17 +67,6 @@
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre:";
             // 
-            // txtNombre
-            // 
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(212, 147);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(203, 31);
-            this.txtNombre.TabIndex = 1;
-            this.txtNombre.Text = "Nombre";
-            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
@@ -90,13 +79,13 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellido.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(212, 199);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(203, 31);
             this.txtApellido.TabIndex = 2;
-            this.txtApellido.Text = "Apellido";
             this.txtApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDni
@@ -111,14 +100,15 @@
             // 
             // txtDni
             // 
+            this.txtDni.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDni.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(212, 252);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(203, 31);
             this.txtDni.TabIndex = 3;
-            this.txtDni.Text = "DNI";
             this.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // lblDireccion
             // 
@@ -132,13 +122,13 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDireccion.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(212, 304);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(203, 31);
             this.txtDireccion.TabIndex = 4;
-            this.txtDireccion.Text = "Dirección";
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMail
@@ -153,13 +143,13 @@
             // 
             // txtMail
             // 
+            this.txtMail.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMail.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(212, 363);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(203, 31);
             this.txtMail.TabIndex = 5;
-            this.txtMail.Text = "E-mail";
             this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTel
@@ -174,25 +164,27 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodigo.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(212, 415);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(47, 31);
             this.txtCodigo.TabIndex = 6;
-            this.txtCodigo.Text = "cod.";
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNumero
             // 
+            this.txtNumero.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtNumero.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumero.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero.Location = new System.Drawing.Point(277, 415);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(138, 31);
             this.txtNumero.TabIndex = 7;
-            this.txtNumero.Text = "Número";
             this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // lblApto
             // 
@@ -241,10 +233,22 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(212, 147);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(203, 31);
+            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(676, 543);
             this.Controls.Add(this.chkApto);
             this.Controls.Add(this.lblApto);
@@ -275,7 +279,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtApellido;
@@ -292,5 +295,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblApto;
         private System.Windows.Forms.CheckBox chkApto;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }
