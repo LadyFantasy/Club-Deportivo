@@ -35,12 +35,24 @@ namespace Club_com_B_grupo3.Datos
                 salida.DbType = DbType.Boolean;
                 salida.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(salida);
+                
                 sqlCon.Open();
                 comando.ExecuteNonQuery();
                 registrado = Convert.ToString(salida.Value);
                 if (registrado == "1")
                 {
-                    MessageBox.Show("El nuevo socio " + nom + " " + ape + " Fue registrado con exito", "Registro exitoso");
+                    string mensaje = "El nuevo socio " + nom + " " + ape + " Fue registrado con exito. ";
+
+                    DataTable existeNoSocio = NoSocio.buscarNoSocio(dni);
+                    if (existeNoSocio.Rows.Count > 0)
+                    {
+                        MySqlCommand comando2 = new MySqlCommand("borrarNoSocio", sqlCon);
+                        comando2.CommandType = CommandType.StoredProcedure;
+                        comando2.Parameters.Add("documento", MySqlDbType.Int32).Value = dni;
+                        comando2.ExecuteNonQuery();
+                        mensaje += "Y borrado de la lista de no socios";
+                    }
+                    MessageBox.Show(mensaje, "Registro exitoso");
                     Form form = new frmCarnet(nom+", "+ape,dni.ToString());
                     form.ShowDialog();
                 }
