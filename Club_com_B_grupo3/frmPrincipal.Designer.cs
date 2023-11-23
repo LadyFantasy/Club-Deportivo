@@ -110,6 +110,7 @@
             this.btnCobrarActividad.TabIndex = 5;
             this.btnCobrarActividad.Text = "Cobrar actividad no socio";
             this.btnCobrarActividad.UseVisualStyleBackColor = false;
+            this.btnCobrarActividad.Click += new System.EventHandler(this.btnCobrarActividad_Click);
             // 
             // btnCobrarCuota
             // 
@@ -122,11 +123,13 @@
             this.btnCobrarCuota.TabIndex = 4;
             this.btnCobrarCuota.Text = "Cobrar cuota socio";
             this.btnCobrarCuota.UseVisualStyleBackColor = false;
+            this.btnCobrarCuota.Click += new System.EventHandler(this.btnCobrarCuota_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(800, 433);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCobrarActividad);

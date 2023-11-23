@@ -69,9 +69,10 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(315, 139);
+            this.txtUsername.Location = new System.Drawing.Point(325, 145);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(203, 31);
             this.txtUsername.TabIndex = 3;
@@ -80,10 +81,11 @@
             // 
             // txtPass
             // 
+            this.txtPass.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Font = new System.Drawing.Font("Perpetua", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtPass.Location = new System.Drawing.Point(315, 200);
+            this.txtPass.Location = new System.Drawing.Point(325, 203);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(203, 31);
             this.txtPass.TabIndex = 4;
