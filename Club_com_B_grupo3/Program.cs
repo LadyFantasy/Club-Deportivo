@@ -18,8 +18,11 @@ namespace Club_com_B_grupo3
             MySqlConnection sqlCon = new MySqlConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form form = new frmCargaDatosDB();
-            form.ShowDialog();
+            //Form form = new frmCargaDatosDB();
+            //form.ShowDialog();
+            establecerConexion(sqlCon);
+
+
             try
             {
                 sqlCon = Conexion.getInstancia().CrearcrearDataBase();
@@ -108,6 +111,31 @@ namespace Club_com_B_grupo3
                 { sqlCon.Close(); };
             }
             Application.Run(new frmLogin());
+        }
+
+        private static void establecerConexion(MySqlConnection sqlCon)
+        {
+            bool seguir = true;
+            while (seguir)
+            {
+                try
+                {
+                    sqlCon = Conexion.getInstancia().CrearcrearDataBase();
+                    sqlCon.Open();
+                    sqlCon.Close();
+                    seguir = false;
+                }
+                catch  
+                {
+                    MessageBox.Show("Datos de conexión no configurados o incorrectos.\nIngrese los datos correctos", "Mensaje de sistema");
+                    Form form = new frmCargaDatosDB();
+                    form.ShowDialog();
+                }
+                finally
+                {
+
+                }
+            }
         }
     }
 }
